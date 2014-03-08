@@ -76,6 +76,7 @@
     <Compile Include="Model\DAL\BookedRoomDAL.cs" />
     <Compile Include="Model\DAL\BookingDAL.cs" />
     <Compile Include="Model\DAL\DALBase.cs" />
+    <Compile Include="Model\DAL\RoomDAL.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

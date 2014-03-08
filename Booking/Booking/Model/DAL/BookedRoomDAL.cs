@@ -9,7 +9,7 @@ namespace BookingEngine.Model.DAL
 {
     public class BookedRoomDAL : DALBase
     {
-        public BookedRoom GetBookedRoomByBookingId(int bookingId)
+        public List<BookedRoom> GetBookedRoomByBookingId(int bookingId)
         {
             using (SqlConnection conn = CreateConnection())
             {
@@ -19,6 +19,8 @@ namespace BookingEngine.Model.DAL
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@BookingId", bookingId);
+
+                    List<BookedRoom> bookedRooms = new List<BookedRoom>(10);
 
                     conn.Open();
 
@@ -30,23 +32,26 @@ namespace BookingEngine.Model.DAL
                         var endDateIndex = reader.GetOrdinal("EndDate");
                         var amountNightsIndex = reader.GetOrdinal("AmountNights");
 
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            return new BookedRoom
+                            bookedRooms.Add(new BookedRoom
                             {
                                 BookingID = reader.GetInt32(bookingIdIndex),
                                 RoomID = reader.GetInt32(roomIdIndex),
                                 StartDate = reader.GetDateTime(startDateIndex),
                                 EndDate = reader.GetDateTime(endDateIndex),
                                 AmountNights = reader.GetInt32(amountNightsIndex)
-                            };
+                            });
                         }
-                        return null;
+
+                        bookedRooms.TrimExcess();
+
+                        return bookedRooms;
                     }
                 }
                 catch
                 {
-                    throw new ApplicationException("An error occured while getting booked room from the database.");
+                    throw new ApplicationException("An error occured while getting booked rooms from the database.");
                 }
             }
         }

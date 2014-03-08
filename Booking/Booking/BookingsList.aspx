@@ -23,16 +23,25 @@
         <ItemTemplate>
             <dl>
                 <dt>
-                    Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Persons
+                    Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s)
                 </dt>
-                <asp:FormView ID="BookedRoomFormView" runat="server"
+                <asp:ListView ID="BookedRoomListView" runat="server"
                     ItemType="BookingEngine.Model.BookedRoom"
                     DataKeyNames="BookingID"
-                    SelectMethod="BookedRoomFormView_GetItem">
+                    SelectMethod="BookedRoomListView_GetItem">
                     <ItemTemplate>
-                        <dd>
-                            Room No <%#: Item.RoomID %>
-                        </dd>
+                        <asp:Repeater ID="RoomListView" runat="server" 
+                            ItemType="BookingEngine.Model.Room" 
+                            DataSource='<%# GetReferences(Item.RoomID) %>'>
+                            <ItemTemplate>
+                                <dd>
+                                    <%# Item.RoomName %> (<%# Item.RoomType %>)
+                                </dd>
+                                <dd>
+                                    Price per Night: EUR <%# Item.PricePerNight %>
+                                </dd>
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <dd>
                             Arriving on <%#: Item.StartDate.ToShortDateString() %>
                         </dd>
@@ -42,11 +51,12 @@
                         <dd>
                             Staying <%#: Item.AmountNights %> Nights
                         </dd>
+                        <hr />
                     </ItemTemplate>
                     <EmptyDataTemplate>
                         <p>No booked rooms found</p>
                     </EmptyDataTemplate>
-                </asp:FormView>
+                </asp:ListView>
             </dl>
         </ItemTemplate>
         <EmptyDataTemplate>
