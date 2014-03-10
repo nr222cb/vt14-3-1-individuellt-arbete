@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.UI;
 
 namespace BookingEngine
 {
@@ -14,6 +15,13 @@ namespace BookingEngine
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
+            myScriptResDef.Path = "~/Scripts/jquery-2.1.0.min.js";
+            myScriptResDef.DebugPath = "~/Scripts/jquery-2.1.0.js";
+            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-2.1.0.min.js";
+            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-2.1.0.js";
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
         }
 
         protected void Session_Start(object sender, EventArgs e)
