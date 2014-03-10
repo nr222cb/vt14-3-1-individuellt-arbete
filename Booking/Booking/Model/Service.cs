@@ -45,5 +45,11 @@ namespace BookingEngine.Model
             return RoomDAL.GetRoomByRoomId(roomId);
         }
 
+        // Ta bort Booking
+        public void DeleteBooking(int bookingId)
+        {
+            BookingDAL.DeleteBooking(bookingId);
+        }
+
     }
 }

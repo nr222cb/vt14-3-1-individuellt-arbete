@@ -53,5 +53,36 @@ namespace BookingEngine.Model.DAL
                 }
             }
         }
+
+        public void DeleteBooking(int bookingId)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar och initierar ett SqlCommand-objekt som används till att 
+                    // exekveras specifierad lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("dbo.usp_DelBooking", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till den paramter den lagrade proceduren kräver. Använder här det effektiva sätttet att
+                    // göra det på - något "svårare" men ASP.NET behöver inte "jobba" så mycket.
+                    cmd.Parameters.Add("@Bookingid", SqlDbType.Int, 4).Value = bookingId;
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Den lagrade proceduren innehåller en DELETE-sats och returnerar inga poster varför metoden 
+                    // ExecuteNonQuery används för att exekvera den lagrade proceduren.
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    // Kastar ett eget undantag om ett undantag kastas.
+                    throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
     }
 }

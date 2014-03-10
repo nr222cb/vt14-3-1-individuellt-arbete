@@ -65,7 +65,16 @@ namespace BookingEngine
 
         public IEnumerable<Room> GetReferences(int id)
         {
-            return Service.GetRoom(id);
+            try
+            {
+                return Service.GetRoom(id);
+            }
+            catch (Exception)
+            {
+
+                ModelState.AddModelError(String.Empty, "Error while fetching the rooms.");
+                return null;
+            }
         }
 
     }

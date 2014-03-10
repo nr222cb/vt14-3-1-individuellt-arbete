@@ -59,17 +59,24 @@
   <ItemGroup>
     <Content Include="BookingsList.aspx" />
     <Content Include="Content\StyleSheet.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Pages\BookingDelete.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Infrastructure\PageExtensions.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BookingsList.aspx.cs">
       <DependentUpon>BookingsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BookingsList.aspx.designer.cs">
       <DependentUpon>BookingsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\BookedRoom.cs" />
     <Compile Include="Model\Booking.cs" />
@@ -79,9 +86,17 @@
     <Compile Include="Model\DAL\RoomDAL.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
+    <Compile Include="Pages\BookingDelete.aspx.cs">
+      <DependentUpon>BookingDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingDelete.aspx.designer.cs">
+      <DependentUpon>BookingDelete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\LNU.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

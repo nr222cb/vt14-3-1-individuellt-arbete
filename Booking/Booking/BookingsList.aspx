@@ -23,7 +23,8 @@
         <ItemTemplate>
             <dl>
                 <dt>
-                    Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s)
+                    Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s) <br />
+                    <asp:HyperLink runat="server" Text="Cancel booking" NavigateUrl='<%# GetRouteUrl("BookingDelete", new { id = Item.BookingID }) %>' />
                 </dt>
                 <asp:ListView ID="BookedRoomListView" runat="server"
                     ItemType="BookingEngine.Model.BookedRoom"
