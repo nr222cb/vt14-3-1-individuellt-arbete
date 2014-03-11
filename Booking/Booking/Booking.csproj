@@ -66,6 +66,7 @@
     <Content Include="Pages\BookingCreate1.aspx" />
     <Content Include="Pages\BookingCreate1_old.aspx" />
     <Content Include="Pages\BookingCreate2.aspx" />
+    <Content Include="Pages\BookingCreate3.aspx" />
     <Content Include="Pages\BookingDelete.aspx" />
     <Content Include="packages.config" />
     <Content Include="Pages\Site.Master" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="Pages\BookingCreate2.aspx.designer.cs">
       <DependentUpon>BookingCreate2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BookingCreate3.aspx.cs">
+      <DependentUpon>BookingCreate3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingCreate3.aspx.designer.cs">
+      <DependentUpon>BookingCreate3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BookingDelete.aspx.cs">
       <DependentUpon>BookingDelete.aspx</DependentUpon>

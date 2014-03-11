@@ -15,6 +15,12 @@ namespace BookingEngine
             return value;
         }
 
+        public static object GetAndKeepTempData(this Page page, string key)
+        {
+            var value = page.Session[key];
+            return value;
+        }
+
         public static object PeekTempData(this Page page, string key)
         {
             return page.Session[key];

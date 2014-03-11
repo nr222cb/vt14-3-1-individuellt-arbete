@@ -15,25 +15,25 @@
                 <asp:Panel runat="server" ID="SuccessMessagePanel" Visible="false" CssClass="icon-ok">
                     <asp:Literal runat="server" ID="SuccessMessageLiteral" />
                 </asp:Panel>
-                <asp:HyperLink runat="server" Text="Make a new booking" CssClass="button-link"/>
+                <asp:HyperLink runat="server" Text="Make a new booking" CssClass="button-link" NavigateUrl="<%$ RouteUrl:RouteName=BookingCreate %>" />
             </div>
             <div>
-                <asp:ListView ID="BookingsListView" runat="server"
-                    ItemType="BookingEngine.Model.Booking"
-                    SelectMethod="BookingsListView_GetData"
-                    DataKeyNames="BookingID">
-                    <LayoutTemplate>
-                        <%-- Platshållare för bokningar --%>
-                        <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <dl>
+                <dl>
+                    <asp:ListView ID="BookingsListView" runat="server"
+                        ItemType="BookingEngine.Model.Booking"
+                        SelectMethod="BookingsListView_GetData"
+                        DataKeyNames="BookingID">
+                        <LayoutTemplate>
+                            <%-- Platshållare för bokningar --%>
+                            <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+                        </LayoutTemplate>
+                        <ItemTemplate>
                             <dt>Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s)
                                 <p>
                                     <asp:HyperLink runat="server" Text="Cancel booking" NavigateUrl='<%# GetRouteUrl("BookingDelete", new { id = Item.BookingID }) %>' CssClass="button-link" />
                                 </p>
                                 <p>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" Text="Change booking" CssClass="button-link"/>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" Text="Change booking" CssClass="button-link" />
                                 </p>
                             </dt>
                             <asp:ListView ID="BookedRoomListView" runat="server"
@@ -64,15 +64,15 @@
                                     <p>No booked rooms found</p>
                                 </EmptyDataTemplate>
                             </asp:ListView>
-                        </dl>
-                    </ItemTemplate>
-                    <EmptyDataTemplate>
-                        <%-- Detta visas då bokningar saknas i databasen. --%>
-                        <p>
-                            No bookings found.
-                        </p>
-                    </EmptyDataTemplate>
-                </asp:ListView>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <%-- Detta visas då bokningar saknas i databasen. --%>
+                            <p>
+                                No bookings found.
+                            </p>
+                        </EmptyDataTemplate>
+                    </asp:ListView>
+                </dl>
             </div>
         </div>
     </form>

@@ -45,10 +45,22 @@ namespace BookingEngine.Model
             return RoomDAL.GetRoomByRoomId(roomId);
         }
 
+        // Hämta ut tillgängliga rum
+        public List<Room> GetAvailRooms(DateTime startDate, DateTime endDate)
+        {
+            return RoomDAL.GetAvailRooms(startDate, endDate);
+        }
+
         // Ta bort Booking
         public void DeleteBooking(int bookingId)
         {
             BookingDAL.DeleteBooking(bookingId);
+        }
+
+        // Skapa en bokning
+        public void MakeBooking(int amountPersons, int roomID, DateTime startDate, DateTime endDate)
+        {
+            BookingDAL.MakeBooking(amountPersons, roomID, startDate, endDate);
         }
 
     }

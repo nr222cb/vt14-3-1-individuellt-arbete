@@ -10,19 +10,27 @@
         ItemType="BookingEngine.Model.Room" 
         DataKeyNames="RoomID" 
         SelectMethod="AvailRoomsListView_GetData">
-
-        <ItemTemplate>
+        <LayoutTemplate>
             <dt>
-                Room Name <%#: Item.RoomName %>
+                Room name
             </dt>
             <dd>
-                Room Type <%#: Item.RoomType %>
+                Room details - tick the box to book the room
+            </dd>
+            <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+        </LayoutTemplate>
+        <ItemTemplate>
+            <dt>
+                <%#: Item.RoomName %>
+            </dt>
+            <dd>
+                Room Type: <%#: Item.RoomType %>
             </dd>
             <dd>
-                Room Price <%#: Item.PricePerNight %>
+                Room Price: <%#: Item.PricePerNight %>
             </dd>
             <dd>
-                <input id="RoomCheckbox" type="checkbox" runat="server" />
+                <asp:CheckBox ID="RoomCheckBox" runat="server" />
             </dd>
         </ItemTemplate>
         <EmptyDataTemplate>
@@ -32,6 +40,7 @@
         </EmptyDataTemplate>
 
     </asp:ListView>
+    <asp:Button ID="SubmitButton" runat="server" Text="Book now" OnClick="SubmitButton_Click" Visible="False" />
     </dl>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">

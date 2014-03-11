@@ -84,5 +84,41 @@ namespace BookingEngine.Model.DAL
                 }
             }
         }
+
+        public void MakeBooking(int amountPersons, int roomID, DateTime startDate, DateTime endDate)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar och initierar ett SqlCommand-objekt som används till att 
+                    // exekveras specifierad lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("dbo.usp_NewBooking", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till de paramterar den lagrade proceduren kräver. Använder här det effektiva sätttet att
+                    // göra det på - något "svårare" men ASP.NET behöver inte "jobba" så mycket.
+                    cmd.Parameters.Add("@AmountPersons", SqlDbType.Int, 4).Value = amountPersons;
+                    cmd.Parameters.Add("@RoomID", SqlDbType.Int, 4).Value = roomID;
+                    cmd.Parameters.Add("@Startdate", SqlDbType.Date).Value = startDate;
+                    cmd.Parameters.Add("@Enddate", SqlDbType.Date).Value = endDate;
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Den lagrade proceduren innehåller en INSERT-sats och returnerar inga poster varför metoden 
+                    // ExecuteNonQuery används för att exekvera den lagrade proceduren.
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch
+                {
+                    // Kastar ett eget undantag om ett undantag kastas.
+                    throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
+
     }
 }
