@@ -6,3 +6,7 @@
         });
     }
 });
+
+$(function() {
+    $("#MainContentPlaceHolder_DateTextBox").datepicker({ dateFormat: 'yy-mm-dd' });
+});

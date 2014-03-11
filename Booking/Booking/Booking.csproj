@@ -63,8 +63,12 @@
     <Content Include="BookingsList.aspx" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\BookingCreate1.aspx" />
+    <Content Include="Pages\BookingCreate1_old.aspx" />
+    <Content Include="Pages\BookingCreate2.aspx" />
     <Content Include="Pages\BookingDelete.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Pages\Site.Master" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
@@ -94,12 +98,40 @@
     <Compile Include="Model\DAL\RoomDAL.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
+    <Compile Include="Pages\BookingCreate1.aspx.cs">
+      <DependentUpon>BookingCreate1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingCreate1.aspx.designer.cs">
+      <DependentUpon>BookingCreate1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BookingCreate1_old.aspx.cs">
+      <DependentUpon>BookingCreate1_old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingCreate1_old.aspx.designer.cs">
+      <DependentUpon>BookingCreate1_old.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BookingCreate2.aspx.cs">
+      <DependentUpon>BookingCreate2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingCreate2.aspx.designer.cs">
+      <DependentUpon>BookingCreate2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BookingDelete.aspx.cs">
       <DependentUpon>BookingDelete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BookingDelete.aspx.designer.cs">
       <DependentUpon>BookingDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

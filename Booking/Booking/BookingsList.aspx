@@ -15,6 +15,7 @@
                 <asp:Panel runat="server" ID="SuccessMessagePanel" Visible="false" CssClass="icon-ok">
                     <asp:Literal runat="server" ID="SuccessMessageLiteral" />
                 </asp:Panel>
+                <asp:HyperLink runat="server" Text="Make a new booking" CssClass="button-link"/>
             </div>
             <div>
                 <asp:ListView ID="BookingsListView" runat="server"
@@ -28,8 +29,12 @@
                     <ItemTemplate>
                         <dl>
                             <dt>Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s)
-                                <br />
-                                <asp:HyperLink runat="server" Text="Cancel booking" NavigateUrl='<%# GetRouteUrl("BookingDelete", new { id = Item.BookingID }) %>' />
+                                <p>
+                                    <asp:HyperLink runat="server" Text="Cancel booking" NavigateUrl='<%# GetRouteUrl("BookingDelete", new { id = Item.BookingID }) %>' CssClass="button-link" />
+                                </p>
+                                <p>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" Text="Change booking" CssClass="button-link"/>
+                                </p>
                             </dt>
                             <asp:ListView ID="BookedRoomListView" runat="server"
                                 ItemType="BookingEngine.Model.BookedRoom"
@@ -51,9 +56,9 @@
                                     </dd>
                                     <dd>Leaving on <%#: Item.EndDate.ToShortDateString() %>
                                     </dd>
-                                    <dd>Staying <%#: Item.AmountNights %> Nights
+                                    <dd>Staying <%#: Item.AmountNights %> Night(s)
                                     </dd>
-                                    <hr />
+                                    <dd>-----</dd>
                                 </ItemTemplate>
                                 <EmptyDataTemplate>
                                     <p>No booked rooms found</p>
