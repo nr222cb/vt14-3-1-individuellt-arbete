@@ -85,6 +85,8 @@ namespace BookingEngine.Model.DAL
             }
         }
 
+        // Metoden använder ett usp som gör insert i två tabeller. Svårt att validera data i BLL.
+        // Säkerställer konsistent db om ngt skulle gå fel eftersom transaktionen lätt kan rullas tillbaka.
         public void MakeBooking(int amountPersons, int roomID, DateTime startDate, DateTime endDate)
         {
             // Skapar och initierar ett anslutningsobjekt.
