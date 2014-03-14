@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using BookingEngine.Model.DAL;
@@ -57,10 +58,47 @@ namespace BookingEngine.Model
             BookingDAL.DeleteBooking(bookingId);
         }
 
-        // Skapa en bokning
-        public void MakeBooking(int amountPersons, int roomID, DateTime startDate, DateTime endDate)
+        public void SaveBooking(Booking booking)
         {
-            BookingDAL.MakeBooking(amountPersons, roomID, startDate, endDate);
+            // Uppfyller inte objektet affärsreglerna...
+            ICollection<ValidationResult> validationResults;
+            if (!booking.Validate(out validationResults)) // Använder "extension method" för valideringen!
+            {                                              // Klassen finns under App_Infrastructure.
+                // ...kastas ett undantag med ett allmänt felmeddelande samt en referens 
+                // till samlingen med resultat av valideringen.
+                var ex = new ValidationException("Objektet klarade inte valideringen.");
+                ex.Data.Add("ValidationResults", validationResults);
+                throw ex;
+            }
+
+            // Booking-objektet sparas antingen genom att en ny post 
+            // skapas eller genom att en befintlig post uppdateras.
+            if (booking.BookingID == 0) // Ny post om CustomerId är 0!
+            {
+                BookingDAL.InsertBooking(booking);
+            }
+            else
+            {
+                //CustomerDAL.UpdateCustomer(customer);
+            }
+        }
+
+        public void SaveBookedRoom(BookedRoom bookedRoom)
+        {
+            // Uppfyller inte objektet affärsreglerna...
+            ICollection<ValidationResult> validationResults;
+            if (!bookedRoom.Validate(out validationResults)) // Använder "extension method" för valideringen!
+            {                                              // Klassen finns under App_Infrastructure.
+                // ...kastas ett undantag med ett allmänt felmeddelande samt en referens 
+                // till samlingen med resultat av valideringen.
+                var ex = new ValidationException("Objektet klarade inte valideringen.");
+                ex.Data.Add("ValidationResults", validationResults);
+                throw ex;
+            }
+
+            // BookedRoom-objektet sparas genom att en ny post 
+            // skapas
+            BookedRoomDAL.InsertBookedRoom(bookedRoom);
         }
 
     }

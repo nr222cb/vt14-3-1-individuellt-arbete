@@ -64,7 +64,6 @@
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\BookingCreate1.aspx" />
-    <Content Include="Pages\BookingCreate1_old.aspx" />
     <Content Include="Pages\BookingCreate2.aspx" />
     <Content Include="Pages\BookingCreate3.aspx" />
     <Content Include="Pages\BookingDelete.aspx" />
@@ -80,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Infrastructure\PageExtensions.cs" />
+    <Compile Include="App_Infrastructure\ValidationExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BookingsList.aspx.cs">
       <DependentUpon>BookingsList.aspx</DependentUpon>
@@ -105,13 +105,6 @@
     </Compile>
     <Compile Include="Pages\BookingCreate1.aspx.designer.cs">
       <DependentUpon>BookingCreate1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BookingCreate1_old.aspx.cs">
-      <DependentUpon>BookingCreate1_old.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\BookingCreate1_old.aspx.designer.cs">
-      <DependentUpon>BookingCreate1_old.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BookingCreate2.aspx.cs">
       <DependentUpon>BookingCreate2.aspx</DependentUpon>

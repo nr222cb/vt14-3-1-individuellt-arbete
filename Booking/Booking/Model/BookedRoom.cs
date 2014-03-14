@@ -8,6 +8,8 @@ namespace BookingEngine.Model
 {
     public class BookedRoom
     {
+        [Required(ErrorMessage = "BookingID is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "BookingID must be an integer")]
         public int BookingID { get; set; }
 
         [Required(ErrorMessage = "RoomID is required")]

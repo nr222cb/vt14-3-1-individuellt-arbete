@@ -122,5 +122,46 @@ namespace BookingEngine.Model.DAL
             }
         }
 
+        // Skapa en ny booking
+        public void InsertBooking(Booking booking)
+        {
+            // Skapar och initierar ett anslutningsobjekt.
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    // Skapar och initierar ett SqlCommand-objekt som används till att 
+                    // exekveras specifierad lagrad procedur.
+                    SqlCommand cmd = new SqlCommand("usp_NewBookingPart1", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lägger till de paramterar den lagrade proceduren kräver. Använder här det effektiva sätttet att
+                    // göra det på - något "svårare" men ASP.NET behöver inte "jobba" så mycket.
+                    cmd.Parameters.Add("@AmountPersons", SqlDbType.Int, 4).Value = booking.AmountPersons;
+
+                    // Den här parametern är lite speciell. Den skickar inte något data till den lagrade proceduren,
+                    // utan hämtar data från den. (Fungerar ungerfär som ref- och out-prameterar i C#.) Värdet 
+                    // parametern kommer att ha EFTER att den lagrade proceduren exekverats är primärnycklens värde
+                    // den nya posten blivit tilldelad av databasen.
+                    cmd.Parameters.Add("@BookingId", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+
+                    // Öppnar anslutningen till databasen.
+                    conn.Open();
+
+                    // Den lagrade proceduren innehåller en INSERT-sats och returnerar inga poster varför metoden 
+                    // ExecuteNonQuery används för att exekvera den lagrade proceduren.
+                    cmd.ExecuteNonQuery();
+
+                    // Hämtar primärnyckelns värde för den nya posten och tilldelar Booking-objektet värdet.
+                    booking.BookingID = (int)cmd.Parameters["@BookingId"].Value;
+                }
+                catch
+                {
+                    // Kastar ett eget undantag om ett undantag kastas.
+                    throw new ApplicationException("An error occured in the data access layer.");
+                }
+            }
+        }
+
     }
 }

@@ -58,10 +58,21 @@ namespace BookingEngine.Pages
                 // hämta valda rum från sessionsvariabel
                 List<int> selRooms = Page.GetTempData("selectedRooms") as List<int>;
 
-                // för varje valt rum hämta information från db
+                // skapa nytt booking objekt och skicka det till SaveBooking
+                Booking booking = new Booking();
+                booking.AmountPersons = amountPersons;
+                Service.SaveBooking(booking);
+
+                // skapa nytt BookedRoom objekt och skicka det till SaveBookedRoom
+                BookedRoom bookedRoom = new BookedRoom();
+                bookedRoom.BookingID = booking.BookingID;
+                bookedRoom.StartDate = startDate;
+                bookedRoom.EndDate = endDate;
+                
                 foreach (int id in selRooms)
                 {
-                    Service.MakeBooking(amountPersons, id, startDate, endDate);
+                    bookedRoom.RoomID = id;
+                    Service.SaveBookedRoom(bookedRoom);
                 }
 
                 Page.SetTempData("SuccessMessage", "The Booking was made successfully.");

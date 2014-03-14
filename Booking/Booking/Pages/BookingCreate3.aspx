@@ -6,6 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <dl>
         <asp:ListView ID="BookingDetailsListView" runat="server"
             ItemType="BookingEngine.Model.Room"
