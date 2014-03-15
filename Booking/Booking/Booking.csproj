@@ -63,11 +63,13 @@
     <Content Include="BookingsList.aspx" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\BookingChange.aspx" />
     <Content Include="Pages\BookingCreate1.aspx" />
     <Content Include="Pages\BookingCreate2.aspx" />
     <Content Include="Pages\BookingCreate3.aspx" />
     <Content Include="Pages\BookingDelete.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Pages\RoomDelete.aspx" />
     <Content Include="Pages\Site.Master" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\app.js" />
@@ -99,6 +101,13 @@
     <Compile Include="Model\DAL\RoomDAL.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
+    <Compile Include="Pages\BookingChange.aspx.cs">
+      <DependentUpon>BookingChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingChange.aspx.designer.cs">
+      <DependentUpon>BookingChange.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BookingCreate1.aspx.cs">
       <DependentUpon>BookingCreate1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,6 +135,13 @@
     </Compile>
     <Compile Include="Pages\BookingDelete.aspx.designer.cs">
       <DependentUpon>BookingDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoomDelete.aspx.cs">
+      <DependentUpon>RoomDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RoomDelete.aspx.designer.cs">
+      <DependentUpon>RoomDelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

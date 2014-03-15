@@ -10,15 +10,16 @@ dt {
     position: relative;
     left: 0;
     top: 1.1em;
-    width: 20em;
+    width: 30em;
     font-weight: bold;
 }
 
-dd {
+.ddgroup dd {
     border-left: 1px solid #000;
-    margin: 0 0 0 23em;
+    margin: 0 0 0 20em;
     padding: 0 0 .5em .5em;
 }
+
 
 .icon-ok {
     border: solid 1px #90ac13;
@@ -49,9 +50,6 @@ dd {
 }
 
 .button-link {
-/*need to add display as block to be able to set width*/
-               display:block;
-               width:170px;
                background:rgba(240,240,240,1);
                -moz-border-radius: 5px;
                -webkit-border-radius: 5px;
@@ -65,6 +63,7 @@ dd {
                border: 1px solid rgba(0,0,0,0.5);
                /*top,right,bottom,left */
                padding: 5px 5px 5px 5px;
+               margin-right:10px;
                font-weight: bold;
 }
 
@@ -89,3 +88,17 @@ dd {
 
 }
 
+.paper {
+    border-left: 1px solid #000;
+    margin: 0 0 .5em 33em;
+    padding: .5em;
+    width: 300px;
+    background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    -webkit-border-top-left-radius: 60px 5px;
+    -webkit-border-top-right-radius: 60px 5px;
+    -webkit-border-bottom-right-radius: 60px 5px;
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+}

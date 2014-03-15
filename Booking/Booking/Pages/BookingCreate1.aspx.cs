@@ -11,7 +11,8 @@ namespace BookingEngine.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // sätt CompareValidator egenskapen så att man kan jämföra med dagens datum
+            CompareValidator3.ValueToCompare = DateTime.Now.ToShortDateString();
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)

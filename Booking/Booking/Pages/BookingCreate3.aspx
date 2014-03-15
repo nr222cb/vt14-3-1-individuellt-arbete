@@ -13,13 +13,16 @@
             DataKeyNames="RoomID"
             SelectMethod="BookingDetailsListView_GetData">
             <LayoutTemplate>
+                <div class="ddgroup">
                 <dt>You have selected the following:
                 </dt>
                 <dd>See room details below
                 </dd>
+                </div>
                 <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
             </LayoutTemplate>
             <ItemTemplate>
+                <div class="ddgroup">
                 <dt>
                     <%#: Item.RoomName %>
                 </dt>
@@ -27,6 +30,7 @@
                 </dd>
                 <dd>Room Price: <%#: Item.PricePerNight %>
                 </dd>
+                </div>
             </ItemTemplate>
             <EmptyDataTemplate>
                 <p>

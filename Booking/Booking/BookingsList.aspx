@@ -31,9 +31,7 @@
                             <dt>Booking <%#: Item.BookingID %>, booked on <%#: Item.BookingDate.ToShortDateString() %> for <%#: Item.AmountPersons %> Person(s)
                                 <p>
                                     <asp:HyperLink runat="server" Text="Cancel booking" NavigateUrl='<%# GetRouteUrl("BookingDelete", new { id = Item.BookingID }) %>' CssClass="button-link" />
-                                </p>
-                                <p>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" Text="Change booking" CssClass="button-link" />
+                                    <asp:HyperLink ID="HyperLink1" runat="server" Text="Change booking" NavigateUrl='<%# GetRouteUrl("BookingChange", new { id = Item.BookingID }) %>' CssClass="button-link" />
                                 </p>
                             </dt>
                             <asp:ListView ID="BookedRoomListView" runat="server"
@@ -41,6 +39,7 @@
                                 DataKeyNames="BookingID"
                                 SelectMethod="BookedRoomListView_GetItem">
                                 <ItemTemplate>
+                                    <div class="paper">
                                     <asp:Repeater ID="RoomListView" runat="server"
                                         ItemType="BookingEngine.Model.Room"
                                         DataSource='<%# GetReferences(Item.RoomID) %>'>
@@ -58,7 +57,7 @@
                                     </dd>
                                     <dd>Staying <%#: Item.AmountNights %> Night(s)
                                     </dd>
-                                    <dd>-----</dd>
+                                    </div>
                                 </ItemTemplate>
                                 <EmptyDataTemplate>
                                     <p>No booked rooms found</p>

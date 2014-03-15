@@ -58,6 +58,12 @@ namespace BookingEngine.Model
             BookingDAL.DeleteBooking(bookingId);
         }
 
+        // Ta bort BookedRoom
+        public void DeleteBookedRoom(int bookingId, int roomId)
+        {
+            BookedRoomDAL.DeleteBookedRoom(bookingId, roomId);
+        }
+
         public void SaveBooking(Booking booking)
         {
             // Uppfyller inte objektet affärsreglerna...

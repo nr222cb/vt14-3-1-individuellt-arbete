@@ -11,27 +11,31 @@
         DataKeyNames="RoomID" 
         SelectMethod="AvailRoomsListView_GetData">
         <LayoutTemplate>
+            <div class="ddgroup">
             <dt>
                 Room name
             </dt>
             <dd>
                 Room details - tick the box to book the room
             </dd>
+            </div>
             <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
         </LayoutTemplate>
         <ItemTemplate>
+            <div class="ddgroup">
             <dt>
                 <%#: Item.RoomName %>
             </dt>
-            <dd>
+            <dd class="ddgroup">
                 Room Type: <%#: Item.RoomType %>
             </dd>
-            <dd>
+            <dd class="ddgroup">
                 Room Price: <%#: Item.PricePerNight %>
             </dd>
             <dd>
                 <asp:CheckBox ID="RoomCheckBox" runat="server" />
             </dd>
+            </div>
         </ItemTemplate>
         <EmptyDataTemplate>
             <p>

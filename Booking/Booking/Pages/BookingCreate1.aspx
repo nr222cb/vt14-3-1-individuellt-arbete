@@ -20,6 +20,7 @@
                 <asp:TextBox ID="DateTextBox" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must choose arrival date." ControlToValidate="DateTextBox" Display="Dynamic" SetFocusOnError="True" Text="*"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Enter a date." ControlToValidate="DateTextBox" Operator="DataTypeCheck" Type="Date" Text="*" SetFocusOnError="True" Display="Dynamic"></asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Select a date from today" ControlToValidate="DateTextBox" Display="Dynamic" Operator="GreaterThanEqual" SetFocusOnError="True" Text="*" Type="Date"></asp:CompareValidator>
             </div>
             <div>
                 <label for="NumberTextBox">How many nights?</label>
