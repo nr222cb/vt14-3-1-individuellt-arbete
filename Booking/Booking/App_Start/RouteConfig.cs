@@ -8,9 +8,9 @@ namespace BookingEngine
         {
             routes.MapPageRoute("BookingDelete", "booking/{id}/delete", "~/Pages/BookingDelete.aspx");
             routes.MapPageRoute("Bookings", "bookings", "~/Bookingslist.aspx");
-            routes.MapPageRoute("BookingCreate", "booking/new", "~/Pages/BookingCreate1.aspx");
-            routes.MapPageRoute("BookingCreate2", "booking/new/rooms", "~/Pages/BookingCreate2.aspx");
-            routes.MapPageRoute("BookingCreate3", "booking/new/details", "~/Pages/BookingCreate3.aspx");
+            routes.MapPageRoute("BookingCreate", "booking/arrival", "~/Pages/BookingCreate1.aspx");
+            routes.MapPageRoute("BookingCreate2", "booking/rooms", "~/Pages/BookingCreate2.aspx");
+            routes.MapPageRoute("BookingCreate3", "booking/details", "~/Pages/BookingCreate3.aspx");
             routes.MapPageRoute("BookingChange", "booking/{id}", "~/Pages/BookingChange.aspx");
             routes.MapPageRoute("CustomerEdit", "kunder/{id}/edit", "~/Pages/CustomerPages/Edit.aspx");
             routes.MapPageRoute("BookedRoomDelete", "room/{bookingId}/{roomId}/delete", "~/Pages/RoomDelete.aspx");

@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="BookingCreate1.aspx.cs" Inherits="BookingEngine.Pages.BookingCreate11" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server">
-    Choose dates
+    Choose arrival date
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <h1>Choose arrival date</h1>
     <fieldset>
         <legend>Choose the dates for your stay!</legend>
         <div>
@@ -40,7 +41,7 @@
                 </asp:DropDownList>
             </div>
             <p>
-                <asp:Button ID="SearchButton" runat="server" Text="Search for rooms" CssClass=".button-link" OnClick="SearchButton_Click" />
+                <asp:Button ID="SearchButton" runat="server" Text="Search for rooms" CssClass="button-link" OnClick="SearchButton_Click" />
             </p>
         </div>
     </fieldset>

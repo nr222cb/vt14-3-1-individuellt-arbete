@@ -60,6 +60,15 @@ namespace BookingEngine.Pages
 
                 // skapa nytt booking objekt och skicka det till SaveBooking
                 Booking booking = new Booking();
+
+                // om sessionsvariabel finns
+                if (Session["bookingId"] != null)
+                {
+                    // hämta boookingId från sessionsvariabel och tilldela objektet egenskapen bookingId
+                    int bookingId = int.Parse(Page.GetAndKeepTempData("bookingId").ToString());
+                    booking.BookingID = bookingId;
+                }
+
                 booking.AmountPersons = amountPersons;
                 Service.SaveBooking(booking);
 
@@ -74,11 +83,23 @@ namespace BookingEngine.Pages
                     bookedRoom.RoomID = id;
                     Service.SaveBookedRoom(bookedRoom);
                 }
+                
+                // om det finns bookingId i session skicka tillbaka till Change booking
+                if (Session["bookingId"] != null)
+                {
+                    Page.SetTempData("SuccessMessage", "The room was added successfully.");
+                    int bookingId = int.Parse(Page.GetTempData("bookingId").ToString());
+                    Response.RedirectToRoute("BookingChange", new { id = bookingId });
+                    Context.ApplicationInstance.CompleteRequest();
+                }
 
-                Page.SetTempData("SuccessMessage", "The Booking was made successfully.");
-
-                Response.RedirectToRoute("Default", null);
-                Context.ApplicationInstance.CompleteRequest();
+                // annars till bokningslistan
+                else
+                {
+                    Page.SetTempData("SuccessMessage", "The Booking was made successfully.");
+                    Response.RedirectToRoute("Default", null);
+                    Context.ApplicationInstance.CompleteRequest();
+                }
 
             }
             catch (Exception)

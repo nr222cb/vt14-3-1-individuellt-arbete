@@ -5,6 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <h1>Change booking
+        <asp:Literal runat="server" Text="<%$ RouteValue:id%>" />
+    </h1>
+    <p>* You can delete a booked room only if the booking contains several rooms!</p>
+    <p>* To cancel the booking go to My bookings!</p>
     <asp:Panel runat="server" ID="SuccessMessagePanel" Visible="false" CssClass="icon-ok">
         <asp:Literal runat="server" ID="SuccessMessageLiteral" />
     </asp:Panel>
@@ -13,9 +18,7 @@
         DataKeyNames="BookingID"
         SelectMethod="BookingChangeListView_GetData">
         <LayoutTemplate>
-            <h1>
-                Change booking <asp:Literal runat="server" Text="<%$ RouteValue:id%>" />
-            </h1>
+            <asp:Button ID="AddRoomsButton" runat="server" Text="Add more rooms" CssClass="button-link" OnClick="AddRoomsButton_Click" />
             <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
         </LayoutTemplate>
         <ItemTemplate>
@@ -27,8 +30,9 @@
                 <ItemTemplate>
                         <dt>
                             <%# Item.RoomName %> (<%# Item.RoomType %>)
-                            <asp:HyperLink ID="delLink" runat="server" Text="Delete room" NavigateUrl='<%# GetRouteUrl("BookedRoomDelete", new { bookingId = RouteData.Values["id"], roomId = Item.RoomID }) %>' CssClass="button-link" Visible="false"></asp:HyperLink>                        </dt>
-                        <div class="ddgroup">
+                            <asp:HyperLink ID="delLink" runat="server" Text="Delete room" NavigateUrl='<%# GetRouteUrl("BookedRoomDelete", new { bookingId = RouteData.Values["id"], roomId = Item.RoomID }) %>' CssClass="button-link" Visible="false"></asp:HyperLink>
+                        </dt>
+                        <div class="paper">
                         <dd>Price per Night: EUR <%# Item.PricePerNight %>
                         </dd>
                 </ItemTemplate>
@@ -43,7 +47,7 @@
             </dl>
         </ItemTemplate>
     </asp:ListView>
-    <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Return to My Bookings" NavigateUrl="<%$ RouteUrl:RouteName=Default %>" />
+    <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Return to My Bookings" NavigateUrl="<%$ RouteUrl:RouteName=Default %>" CssClass="button-link"/>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
 </asp:Content>

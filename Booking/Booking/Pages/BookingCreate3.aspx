@@ -6,6 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <h1>Review booking details</h1>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <dl>
         <asp:ListView ID="BookingDetailsListView" runat="server"
@@ -34,12 +35,12 @@
             </ItemTemplate>
             <EmptyDataTemplate>
                 <p>
-                    No rooms were found for this period.
+                    No selected rooms were found.
                 </p>
             </EmptyDataTemplate>
 
         </asp:ListView>
-        <asp:Button ID="SubmitButton" runat="server" Text="Confirm booking" OnClick="SubmitButton_Click" />
+        <asp:Button ID="SubmitButton" runat="server" Text="Confirm booking" OnClick="SubmitButton_Click" CssClass="button-link" />
     </dl>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">

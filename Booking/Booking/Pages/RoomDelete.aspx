@@ -14,9 +14,12 @@
     </p>
     </div>
     <div>
-        <asp:LinkButton runat="server" ID="DeleteLinkButton" Text="Yes, delete the room" OnClick="DeleteLinkButton_Click" />
-        <br />
-        <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Cancel" />
+        <p>
+        <asp:LinkButton runat="server" ID="DeleteLinkButton" Text="Yes, delete the room" OnClick="DeleteLinkButton_Click" CssClass="button-link" />
+        </p>
+        <p>
+        <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Cancel" CssClass="button-link" />
+        </p>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">

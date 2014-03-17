@@ -73,5 +73,15 @@ namespace BookingEngine.Pages
                 delLink.Visible = true;
             }
         }
+
+        // sätter sessionsvariabel för bookingId om man kommer från Change booking
+        protected void AddRoomsButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Page.RouteData.Values["id"]);
+            Page.SetTempData("bookingId", id);
+
+            Response.RedirectToRoute("BookingCreate", null);
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

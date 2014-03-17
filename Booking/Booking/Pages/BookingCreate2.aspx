@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <h1>Choose rooms</h1>
     <dl>
     <asp:ListView ID="AvailRoomsListView" runat="server" 
         ItemType="BookingEngine.Model.Room" 
@@ -44,7 +45,7 @@
         </EmptyDataTemplate>
 
     </asp:ListView>
-    <asp:Button ID="SubmitButton" runat="server" Text="Book now" OnClick="SubmitButton_Click" Visible="False" />
+    <asp:Button ID="SubmitButton" runat="server" Text="Book now" OnClick="SubmitButton_Click" Visible="False" CssClass="button-link" />
     </dl>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">

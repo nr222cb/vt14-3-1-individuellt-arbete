@@ -85,7 +85,7 @@ namespace BookingEngine.Model
             }
             else
             {
-                //CustomerDAL.UpdateCustomer(customer);
+                BookingDAL.UpdateBooking(booking);
             }
         }
 

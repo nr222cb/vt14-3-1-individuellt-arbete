@@ -10,7 +10,7 @@ dt {
     position: relative;
     left: 0;
     top: 1.1em;
-    width: 30em;
+    width: 20em;
     font-weight: bold;
 }
 
@@ -65,6 +65,8 @@ dt {
                padding: 5px 5px 5px 5px;
                margin-right:10px;
                font-weight: bold;
+               font-size:16px;
+               font-family: georgia, times, serif;
 }
 
 .button-link:hover {
@@ -90,7 +92,7 @@ dt {
 
 .paper {
     border-left: 1px solid #000;
-    margin: 0 0 .5em 33em;
+    margin: 0 0 .5em 21em;
     padding: .5em;
     width: 300px;
     background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));

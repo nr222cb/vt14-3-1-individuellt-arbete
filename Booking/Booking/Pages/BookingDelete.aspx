@@ -17,9 +17,9 @@
     </div>
     <div>
         <asp:LinkButton runat="server" ID="DeleteLinkButton" Text="Yes, delete the booking"
-            OnCommand="DeleteLinkButton_Command" CommandArgument='<%$ RouteValue:id %>' />
+            OnCommand="DeleteLinkButton_Command" CommandArgument='<%$ RouteValue:id %>' CssClass="button-link" />
         <br />
-        <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Cancel" NavigateUrl="<%$ RouteUrl:RouteName=Default %>" />
+        <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Cancel" NavigateUrl="<%$ RouteUrl:RouteName=Default %>" CssClass="button-link" />
     </div>
     </form>
 </body>
