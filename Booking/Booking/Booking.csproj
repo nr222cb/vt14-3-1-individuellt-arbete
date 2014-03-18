@@ -69,6 +69,7 @@
     <Content Include="Pages\BookingCreate3.aspx" />
     <Content Include="Pages\BookingDelete.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\RoomDelete.aspx" />
     <Content Include="Pages\Site.Master" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Pages\BookingDelete.aspx.designer.cs">
       <DependentUpon>BookingDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RoomDelete.aspx.cs">
       <DependentUpon>RoomDelete.aspx</DependentUpon>

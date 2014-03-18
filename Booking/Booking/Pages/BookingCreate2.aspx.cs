@@ -32,9 +32,15 @@ namespace BookingEngine.Pages
                 //int? amountNights = Page.GetTempData("amountNights") as int?;
                 int amountNights = int.Parse(Page.GetAndKeepTempData("amountNights").ToString());
                 DateTime endDate = startDate.AddDays(amountNights);
-                SubmitButton.Visible = true;
 
-                return Service.GetAvailRooms(startDate, endDate);
+                // ifall det finns ett resultat visa book-knappen
+                List<Room> results = Service.GetAvailRooms(startDate, endDate);
+                if (results.Count() != 0)
+                {
+                    SubmitButton.Visible = true;
+                }
+
+                return results;
             }
             catch (Exception)
             {

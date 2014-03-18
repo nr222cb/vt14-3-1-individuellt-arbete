@@ -42,7 +42,7 @@
         </asp:ListView>
         <asp:Button ID="SubmitButton" runat="server" Text="Confirm booking" OnClick="SubmitButton_Click" CssClass="button-link" Visible="false" />
     </dl>
-    <p><asp:LinkButton ID="CancelButton" runat="server" Text="Cancel" CssClass="button-link" OnClick="CancelButton_Click" CausesValidation="false"></asp:LinkButton></p>
+    <p><asp:LinkButton ID="CancelButton" runat="server" Text="Cancel and return to My Bookings" CssClass="button-link" OnClick="CancelButton_Click" CausesValidation="false"></asp:LinkButton></p>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
 </asp:Content>

@@ -14,7 +14,7 @@ namespace BookingEngine
             routes.MapPageRoute("BookingChange", "booking/{id}", "~/Pages/BookingChange.aspx");
             routes.MapPageRoute("BookedRoomDelete", "room/{bookingId}/{roomId}/delete", "~/Pages/RoomDelete.aspx");
 
-            routes.MapPageRoute("Error", "serverfel", "~/Pages/Error.aspx");
+            routes.MapPageRoute("Error", "servererror", "~/Pages/Error.aspx");
 
             routes.MapPageRoute("Default", "", "~/Bookingslist.aspx");
         }
