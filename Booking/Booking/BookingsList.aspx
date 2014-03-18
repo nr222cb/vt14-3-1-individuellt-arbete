@@ -75,6 +75,7 @@
             </div>
         </div>
     </form>
+    <footer>Booking Engine by NORI for LNU, version 0.1</footer>
     <script src="Scripts/jquery-2.1.0.js" type="text/javascript"></script>
     <script src="Scripts/app.js" type="text/javascript"></script>
 </body>

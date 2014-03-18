@@ -47,7 +47,7 @@
             </dl>
         </ItemTemplate>
     </asp:ListView>
-    <asp:HyperLink runat="server" ID="CancelHyperLink" Text="Return to My Bookings" NavigateUrl="<%$ RouteUrl:RouteName=Default %>" CssClass="button-link"/>
+    <asp:LinkButton ID="CancelButton" runat="server" Text="Return to My Bookings" CssClass="button-link" OnClick="CancelButton_Click"></asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
 </asp:Content>

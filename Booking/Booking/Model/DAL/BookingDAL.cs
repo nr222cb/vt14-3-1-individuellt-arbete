@@ -163,6 +163,7 @@ namespace BookingEngine.Model.DAL
             }
         }
 
+        // Uppdatera en booking
         public void UpdateBooking(Booking booking)
         {
             // Skapar och initierar ett anslutningsobjekt.

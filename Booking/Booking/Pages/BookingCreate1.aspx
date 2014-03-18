@@ -45,6 +45,7 @@
             </p>
         </div>
     </fieldset>
+    <p><asp:LinkButton ID="CancelButton" runat="server" Text="Cancel" CssClass="button-link" OnClick="CancelButton_Click" CausesValidation="false"></asp:LinkButton></p>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

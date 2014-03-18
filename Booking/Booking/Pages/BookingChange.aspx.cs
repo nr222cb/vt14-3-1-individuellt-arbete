@@ -83,5 +83,12 @@ namespace BookingEngine.Pages
             Response.RedirectToRoute("BookingCreate", null);
             Context.ApplicationInstance.CompleteRequest();
         }
+
+        protected void CancelButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.RedirectToRoute("Default", null);
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

@@ -31,6 +31,11 @@ namespace BookingEngine.Pages
                 List<Room> resultRooms = new List<Room>();
                 // hämta valda rum från sessionsvariabel
                 List<int> selRooms = Page.GetAndKeepTempData("selectedRooms") as List<int>;
+                // visa confirm-knappen om det finns rum att boka
+                if (selRooms.Count() != 0)
+                {
+                    SubmitButton.Visible = true;
+                }
                 // för varje valt rum hämta information från db
                 foreach (int id in selRooms)
                 {
@@ -106,6 +111,13 @@ namespace BookingEngine.Pages
             {
                 ModelState.AddModelError(String.Empty, "Error while making a booking");
             }
+        }
+
+        protected void CancelButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.RedirectToRoute("Default", null);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }
